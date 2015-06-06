@@ -42,6 +42,7 @@ public class BaseController {
     @RequestMapping(value = "/greeting", method = RequestMethod.GET)
     public String serveContect(@RequestParam("id") String id) {
         if(id.equalsIgnoreCase("times")) {
+            logger.info("id value is: " + id);
             return ARTICLE;
         }
 		return null;
