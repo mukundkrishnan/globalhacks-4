@@ -38,7 +38,7 @@ public class BaseController {
 //
 //	}
 
-    @RequestMapping(value = "/greeting", method = RequestMethod.GET, consumes = "application/json", produces = "text/html")
+    @RequestMapping(value = "/greeting/{}", method = RequestMethod.GET, consumes = "application/json", produces = "text/html")
     public String serveContect(@RequestParam("fun") String id) {
         if(id.equalsIgnoreCase("times")) {
             logger.info("id value is: " + id);
