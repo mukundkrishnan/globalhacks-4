@@ -3,11 +3,15 @@ package com.mkyong.controller.dto;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonProperty;
 
+import java.io.Serializable;
 import java.util.List;
 
 @JsonAutoDetect
-public class RequestDTO {
-    private String id;
+public class RequestDTO implements Serializable{
+
+	private static final long serialVersionUID = 3194770911128370197L;
+
+	private String id;
 
     @JsonProperty(value = "account_id")
     private Integer account_id;

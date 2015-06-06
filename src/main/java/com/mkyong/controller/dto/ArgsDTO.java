@@ -11,7 +11,9 @@ import java.io.Serializable;
 @JsonAutoDetect
 public class ArgsDTO implements Serializable{
 
-    @JsonProperty(value = "id")
+	private static final long serialVersionUID = 4146573053792856476L;
+
+	@JsonProperty(value = "id")
     private Integer integer;
 
     @JsonProperty(value = "op")
