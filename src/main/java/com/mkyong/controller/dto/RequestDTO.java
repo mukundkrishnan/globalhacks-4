@@ -1,14 +1,28 @@
 package com.mkyong.controller.dto;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonProperty;
+
 /**
  * Created by Sirius on 6/6/15.
  */
+@JsonAutoDetect
 public class RequestDTO {
     private String id;
+
+    @JsonProperty(value = "account_id")
     private int account_id;
+
+    @JsonProperty(value = "app_id")
     private int app_id;
-    private String id_url;
-    private String login_token;
+
+    @JsonProperty(value = "ld_url")
+    private String url;
+
+    @JsonProperty(value = "login_token")
+    private String token;
+
+    @JsonProperty(value = "args")
     private Object args[];
 
     public String getId() {
@@ -35,20 +49,20 @@ public class RequestDTO {
         this.app_id = app_id;
     }
 
-    public String getId_url() {
-        return id_url;
+    public String getUrl() {
+        return url;
     }
 
-    public void setId_url(String id_url) {
-        this.id_url = id_url;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public String getLogin_token() {
-        return login_token;
+    public String getToken() {
+        return token;
     }
 
-    public void setLogin_token(String login_token) {
-        this.login_token = login_token;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public Object[] getArgs() {
