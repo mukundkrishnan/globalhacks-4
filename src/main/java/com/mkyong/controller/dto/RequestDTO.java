@@ -3,18 +3,17 @@ package com.mkyong.controller.dto;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonProperty;
 
-/**
- * Created by Sirius on 6/6/15.
- */
+import java.util.List;
+
 @JsonAutoDetect
 public class RequestDTO {
     private String id;
 
     @JsonProperty(value = "account_id")
-    private int account_id;
+    private Integer account_id;
 
     @JsonProperty(value = "app_id")
-    private int app_id;
+    private Integer app_id;
 
     @JsonProperty(value = "ld_url")
     private String url;
@@ -23,7 +22,15 @@ public class RequestDTO {
     private String token;
 
     @JsonProperty(value = "args")
-    private Object args[];
+    private List<ArgsDTO> argsList;
+
+    public List<ArgsDTO> getArgsList() {
+        return argsList;
+    }
+
+    public void setArgsList(List<ArgsDTO> argsList) {
+        this.argsList = argsList;
+    }
 
     public String getId() {
         return id;
@@ -37,7 +44,7 @@ public class RequestDTO {
         return account_id;
     }
 
-    public void setAccount_id(int account_id) {
+    public void setAccount_id(Integer account_id) {
         this.account_id = account_id;
     }
 
@@ -45,7 +52,7 @@ public class RequestDTO {
         return app_id;
     }
 
-    public void setApp_id(int app_id) {
+    public void setApp_id(Integer app_id) {
         this.app_id = app_id;
     }
 
@@ -63,13 +70,5 @@ public class RequestDTO {
 
     public void setToken(String token) {
         this.token = token;
-    }
-
-    public Object[] getArgs() {
-        return args;
-    }
-
-    public void setArgs(Object[] args) {
-        this.args = args;
     }
 }
