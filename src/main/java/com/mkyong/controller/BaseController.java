@@ -6,11 +6,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BaseController {
 
-	private static int counter = 0;
+    private static final String ARTICLE = "helloarticle";
+    private static int counter = 0;
 	private static final String VIEW_INDEX = "index";
 	private final static org.slf4j.Logger logger = LoggerFactory.getLogger(BaseController.class);
 
@@ -26,14 +28,23 @@ public class BaseController {
 
 	}
 
-	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
-	public String welcomeName(@PathVariable String name, ModelMap model) {
+//
+//	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
+//	public String welcomeName(@PathVariable String name, ModelMap model) {
+//
+//		model.addAttribute("message", "Welcome " + name);
+//		model.addAttribute("counter", ++counter);
+//		logger.debug("[welcomeName] counter : {}", counter);
+//		return VIEW_INDEX;
+//
+//	}
 
-		model.addAttribute("message", "Welcome " + name);
-		model.addAttribute("counter", ++counter);
-		logger.debug("[welcomeName] counter : {}", counter);
-		return VIEW_INDEX;
-
+    @RequestMapping(value = "/greeting", method = RequestMethod.GET)
+    public String serveContect(@RequestParam("id") String id) {
+        if(id.equalsIgnoreCase("times")) {
+            return ARTICLE;
+        }
+		return null;
 	}
 
 }
